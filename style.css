@@ -1,0 +1,73 @@
+/* imported from fonts.google.com with selected fonts */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* applies to everything, if add border or anything doesnt affect others */
+* {
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Muli', sans-serif;
+    /* display flex to  centre everything and puts it in a row */
+    display: flex; 
+    /* changes direction from row too vertical */
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    /* centers content both ways */
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    /* puts images in a row */
+    display: flex;
+    /* flex-direction: column; to display the cards in a column*/
+    width: 90vw;
+}
+
+.panel {
+    background-size: cover ;
+    background-size: auto 100;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    flex: 0.5 ;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 24px;
+    position:absolute;
+    top: 20px;
+    left: 100px;
+    margin: 0;
+    /* opacity=text only shows if it's active */
+    opacity: 0;
+    color:black;
+    background-color:white;
+}
+
+.panel.active {
+    flex:5 ;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+/* if screen is really small only show 3 of 5 of the cards */
+@media(max-width: 480px){
+    .container{
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),.panel:nth-of-type(5){
+        display: none;
+    }
+}
